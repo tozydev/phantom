@@ -5,6 +5,9 @@ import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPILogger
 
+/**
+ * Base class for Phantom plugins that use the Paper API.
+ */
 abstract class PhantomPaperPlugin : SuspendingJavaPlugin() {
     protected open val configureCommandApi: (CommandAPIBukkitConfig.() -> Unit)? = {
         shouldHookPaperReload(true)
