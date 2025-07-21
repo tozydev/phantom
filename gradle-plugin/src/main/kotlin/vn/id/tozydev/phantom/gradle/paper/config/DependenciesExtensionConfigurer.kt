@@ -6,9 +6,8 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.kotlin.dsl.create
 import vn.id.tozydev.phantom.gradle.BuildConfig
+import vn.id.tozydev.phantom.gradle.DependenciesRes
 import vn.id.tozydev.phantom.gradle.paper.PaperProjectExtension
-
-// TODO manage versions in a central place
 
 object DependenciesExtensionConfigurer : ProjectConfigurer<PaperProjectExtension> {
     override fun invoke(
@@ -62,73 +61,71 @@ abstract class PluginDependenciesExtension(
     private val dependencies: DependencyHandler,
 ) {
     fun placeholderApi(
-        version: String = "2.11.6",
+        version: String = DependenciesRes.PLACEHOLDERAPI_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("me.clip:placeholderapi:$version", action)
+        val dep = dependencies.create("${DependenciesRes.PLACEHOLDERAPI_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun itemNbtApi(
-        version: String = "2.15.0",
+        version: String = DependenciesRes.ITEM_NBT_API_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("de.tr7zw:item-nbt-api:$version", action)
+        val dep = dependencies.create("${DependenciesRes.ITEM_NBT_API_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun protocolLib(
-        version: String = "5.3.0",
+        version: String = DependenciesRes.PROTOCOL_LIB_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("com.comphenix.protocol:ProtocolLib:$version", action)
+        val dep = dependencies.create("${DependenciesRes.PROTOCOL_LIB_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun vault(
-        version: String = "1.7.1",
+        version: String = DependenciesRes.VAULT_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("com.github.MilkBowl:VaultAPI:$version", action)
+        val dep = dependencies.create("${DependenciesRes.VAULT_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun luckPerms(
-        version: String = "5.5",
+        version: String = DependenciesRes.LUCKPERMS_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("net.luckperms:api:$version", action)
+        val dep = dependencies.create("${DependenciesRes.LUCKPERMS_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun worldEdit(
-        version: String = "7.3.15-SNAPSHOT",
+        version: String = DependenciesRes.WORLD_EDIT_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep =
-            dependencies.create("com.sk89q.worldedit:worldedit-bukkit:$version", action)
+        val dep = dependencies.create("${DependenciesRes.WORLD_EDIT_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun worldGuard(
-        version: String = "7.1.0-SNAPSHOT",
+        version: String = DependenciesRes.WORLD_GUARD_VERSION,
         configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep =
-            dependencies.create("com.sk89q.worldguard:worldguard-bukkit:$version", action)
+        val dep = dependencies.create("${DependenciesRes.WORLD_GUARD_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
@@ -139,52 +136,51 @@ abstract class DatabaseDriversDependenciesExtension(
     private val dependencies: DependencyHandler,
 ) {
     fun mysql(
-        version: String = "9.3.0",
+        version: String = DependenciesRes.MYSQL_VERSION,
         configurationName: String = JavaPlugin.RUNTIME_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("com.mysql:mysql-connector-j:$version", action)
+        val dep = dependencies.create("${DependenciesRes.MYSQL_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun mariadb(
-        version: String = "3.5.4",
+        version: String = DependenciesRes.MARIADB_VERSION,
         configurationName: String = JavaPlugin.RUNTIME_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep =
-            dependencies.create("org.mariadb.jdbc:mariadb-java-client:$version", action)
+        val dep = dependencies.create("${DependenciesRes.MARIADB_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun postgresql(
-        version: String = "42.7.7",
+        version: String = DependenciesRes.POSTGRESQL_VERSION,
         configurationName: String = JavaPlugin.RUNTIME_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("org.postgresql:postgresql:$version", action)
+        val dep = dependencies.create("${DependenciesRes.POSTGRESQL_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun sqlite(
-        version: String = "3.50.2.0",
+        version: String = DependenciesRes.SQLITE_VERSION,
         configurationName: String = JavaPlugin.RUNTIME_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("org.xerial:sqlite-jdbc:$version", action)
+        val dep = dependencies.create("${DependenciesRes.SQLITE_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
 
     fun h2(
-        version: String = "2.3.232",
+        version: String = DependenciesRes.H2_VERSION,
         configurationName: String = JavaPlugin.RUNTIME_ONLY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("com.h2database:h2:$version", action)
+        val dep = dependencies.create("${DependenciesRes.H2_MODULE}:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }

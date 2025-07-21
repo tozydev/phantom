@@ -1,0 +1,16 @@
+[libraries]
+### Paper plugins
+placeholderApi = { module = "me.clip:placeholderapi", version = "2.11.6" }
+item-nbt-api = { module = "de.tr7zw:item-nbt-api", version = "2.15.0" }
+protocol-lib = { module = "com.comphenix.protocol:ProtocolLib", version = "5.3.0" }
+vault = { module = "com.github.MilkBowl:VaultAPI", version = "1.7.1" }
+luckPerms = { module = "net.luckperms:api", version = "5.5" }
+world-edit = { module = "com.sk89q.worldedit:worldedit-bukkit", version = "7.3.15-SNAPSHOT" }
+world-guard = { module = "com.sk89q.worldguard:worldguard-bukkit", version = "7.1.0-SNAPSHOT" }
+
+### Database drivers
+mysql = { module = "com.mysql:mysql-connector-j", version = "9.3.0" }
+mariadb = { module = "org.mariadb.jdbc:mariadb-java-client", version = "3.5.4" }
+postgresql = { module = "org.postgresql:postgresql", version = "42.7.7" }
+sqlite = { module = "org.xerial:sqlite-jdbc", version = "3.50.2.0" }
+h2 = { module = "com.h2database:h2", version = "2.3.232" }

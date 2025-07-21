@@ -141,6 +141,17 @@ buildConfig {
         "VELA_RELEASES_URL",
         "\"${velaReleasesUrl}\"",
     )
+
+    forClass("DependenciesRes") {
+        val depLibs = versionCatalogs.named("depLibs")
+        depLibs.libraryAliases.forEach { alias ->
+            depLibs.findLibrary(alias).map { it.orNull }.ifPresent {
+                val name = alias.replace(".", "_").uppercase()
+                buildConfigField("${name}_MODULE", it.module.toString())
+                buildConfigField("${name}_VERSION", it.version.toString())
+            }
+        }
+    }
 }
 
 publishing {

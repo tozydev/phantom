@@ -7,6 +7,9 @@ dependencyResolutionManagement {
         create("libs") {
             from(files("../gradle/gradle-plugin-libs.versions.toml"))
         }
+        create("depLibs") {
+            from(files("../gradle/dep-libs.versions.toml"))
+        }
     }
 }
 
