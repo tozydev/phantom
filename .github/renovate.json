@@ -7,5 +7,16 @@
   "prHourlyLimit": 5,
   "schedule": [
     "* 0-6 * * 0,6"
-  ]
+  ],
+  "gradle": {
+    "registryUrls": [
+      "https://plugins.gradle.org/m2/",
+      "https://repo.maven.apache.org/maven2",
+      "https://maven.enginehub.org/repo/",
+      "https://repo.codemc.io/repository/maven-public/",
+      "https://jitpack.io",
+      "https://repo.extendedclip.com/releases/",
+      "https://repo.dmulloy2.net/repository/public/"
+    ]
+  }
 }
