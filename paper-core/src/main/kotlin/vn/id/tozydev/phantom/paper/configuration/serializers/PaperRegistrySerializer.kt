@@ -43,7 +43,7 @@ class PaperRegistrySerializer<T : Keyed>(
         when (obj) {
             is Key -> registry.getOrThrow(obj)
             is net.kyori.adventure.key.Keyed -> registry.getOrThrow(obj.key())
-            else -> registry.getOrThrow(obj.toString().toKey())
+            else -> registry.getOrThrow(obj.toString().lowercase().toKey())
         }
 
     override fun serialize(
