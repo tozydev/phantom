@@ -17,12 +17,6 @@ abstract class PhantomPaperPlugin : SuspendingJavaPlugin() {
     protected val isCommandApiEnabled: Boolean
         get() = configureCommandApi != null
 
-    abstract override suspend fun onLoadAsync()
-
-    abstract override suspend fun onEnableAsync()
-
-    abstract override suspend fun onDisableAsync()
-
     override fun onLoad() {
         if (isCommandApiEnabled) {
             CommandAPI.setLogger(CommandAPILogger.fromSlf4jLogger(slF4JLogger))
