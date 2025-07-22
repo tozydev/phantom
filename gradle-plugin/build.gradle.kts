@@ -122,7 +122,7 @@ buildConfig {
     buildConfigField(
         "Int",
         "JAVA_VERSION",
-        libs.versions.java
+        providers.gradleProperty("java.version")
             .get()
             .toInt(),
     )
