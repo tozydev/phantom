@@ -40,7 +40,7 @@ abstract class PhantomDependenciesExtension(
         configurationName: String = DynamicLibraryLoaderConfigurer.LIBRARY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("${BuildConfig.PHANTOM_GROUP}:phantom-paper-database-core:$version", action)
+        val dep = dependencies.create("${BuildConfig.PHANTOM_GROUP}:phantom-database-core:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
@@ -50,7 +50,7 @@ abstract class PhantomDependenciesExtension(
         configurationName: String = DynamicLibraryLoaderConfigurer.LIBRARY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("${BuildConfig.PHANTOM_GROUP}:phantom-paper-database-exposed:$version", action)
+        val dep = dependencies.create("${BuildConfig.PHANTOM_GROUP}:phantom-database-exposed:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }

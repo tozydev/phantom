@@ -13,3 +13,5 @@ rootProject.name = "phantom"
 subproject("paper-core")
 subproject("database-jdbc")
 subproject("database-exposed")
+
+// includeBuild("examples")
