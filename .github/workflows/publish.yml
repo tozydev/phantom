@@ -51,9 +51,16 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x gradlew
 
-      - name: Publish with Gradle
-        id: publish
-        run: ./gradlew gradle-plugin:publish publish
+      - name: Publish gradle plugin
+        id: publish-gradle-plugin
+        run: ./gradlew gradle-plugin:publish
+        env:
+          VELA_USERNAME: ${{ secrets.VELA_USERNAME }}
+          VELA_PASSWORD: ${{ secrets.VELA_PASSWORD }}
+
+      - name: Publish libraries
+        id: publish-artifacts
+        run: ./gradlew publish --no-configuration-cache # Temporarily disable configuration cache due to task issues
         env:
           VELA_USERNAME: ${{ secrets.VELA_USERNAME }}
           VELA_PASSWORD: ${{ secrets.VELA_PASSWORD }}
