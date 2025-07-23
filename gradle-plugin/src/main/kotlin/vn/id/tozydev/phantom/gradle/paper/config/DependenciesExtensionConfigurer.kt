@@ -35,12 +35,12 @@ abstract class PhantomDependenciesExtension(
         return dep
     }
 
-    fun databaseCore(
+    fun databaseJdbc(
         version: String = BuildConfig.PHANTOM_VERSION,
         configurationName: String = DynamicLibraryLoaderConfigurer.LIBRARY_CONFIGURATION_NAME,
         action: ExternalModuleDependency.() -> Unit = {},
     ): ExternalModuleDependency {
-        val dep = dependencies.create("${BuildConfig.PHANTOM_GROUP}:phantom-database-core:$version", action)
+        val dep = dependencies.create("${BuildConfig.PHANTOM_GROUP}:phantom-database-jdbc:$version", action)
         dependencies.add(configurationName, dep)
         return dep
     }
