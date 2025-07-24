@@ -9,7 +9,6 @@ import vn.id.tozydev.phantom.gradle.paper.config.KotlinConfigurer
 import vn.id.tozydev.phantom.gradle.paper.config.MavenPublishConfigurer
 import vn.id.tozydev.phantom.gradle.paper.config.PaperweightUserdevConfigurer
 import vn.id.tozydev.phantom.gradle.paper.config.ProjectConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.ShadowConfigurer
 
 abstract class PaperLibraryProjectPlugin : BasePaperProjectPlugin<PaperLibraryProjectExtension>() {
     override fun createExtension(project: Project): PaperLibraryProjectExtension =
@@ -25,6 +24,5 @@ abstract class PaperLibraryProjectPlugin : BasePaperProjectPlugin<PaperLibraryPr
             PaperweightUserdevConfigurer,
             MavenPublishConfigurer,
             DependenciesExtensionConfigurer,
-            ShadowConfigurer,
         )
 }

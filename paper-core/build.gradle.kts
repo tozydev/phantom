@@ -2,11 +2,6 @@ import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 
 plugins {
     `paper-library`
-    shadow
-}
-
-repositories {
-    codeMc()
 }
 
 dependencies {
@@ -36,8 +31,8 @@ dependencies {
         exclude(group = "com.google.errorprone")
     }
 
-    shade(libs.commandapi.bukkit.shade.mojmap)
-    shade(libs.commandapi.bukkit.kotlin)
+    api(libs.commandapi.bukkit.shade.mojmap)
+    api(libs.commandapi.bukkit.kotlin)
 }
 
 tasks {
