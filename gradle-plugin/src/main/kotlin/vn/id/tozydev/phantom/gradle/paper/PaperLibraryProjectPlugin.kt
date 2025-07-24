@@ -12,10 +12,15 @@ import vn.id.tozydev.phantom.gradle.paper.config.ProjectConfigurer
 
 abstract class PaperLibraryProjectPlugin : BasePaperProjectPlugin<PaperLibraryProjectExtension>() {
     override fun createExtension(project: Project): PaperLibraryProjectExtension =
-        project.extensions.create<PaperLibraryProjectExtension>("paperLibrary").apply {
-            javaVersion.convention(BuildConfig.JAVA_VERSION)
-            minecraftVersion.convention(BuildConfig.MINECRAFT_VERSION)
-        }
+        project.extensions
+            .create(
+                PaperLibraryProjectExtension::class,
+                "paperLibrary",
+                DefaultPaperLibraryProjectExtension::class,
+            ).apply {
+                javaVersion.convention(BuildConfig.JAVA_VERSION)
+                minecraftVersion.convention(BuildConfig.MINECRAFT_VERSION)
+            }
 
     override val configurers: List<ProjectConfigurer<PaperLibraryProjectExtension>> =
         listOf(

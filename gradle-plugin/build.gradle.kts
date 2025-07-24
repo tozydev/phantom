@@ -122,7 +122,8 @@ buildConfig {
     buildConfigField(
         "Int",
         "JAVA_VERSION",
-        providers.gradleProperty("java.version")
+        providers
+            .gradleProperty("java.version")
             .get()
             .toInt(),
     )
@@ -171,6 +172,10 @@ publishing {
                 password = providers.gradleProperty("vela.password").orNull
                     ?: providers.environmentVariable("VELA_PASSWORD").orNull
             }
+        }
+        maven {
+            name = "Local"
+            url = uri(file("../build/artifacts/maven"))
         }
     }
 }

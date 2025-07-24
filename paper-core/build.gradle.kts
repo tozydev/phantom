@@ -35,17 +35,8 @@ dependencies {
     api(libs.commandapi.bukkit.kotlin)
 }
 
-tasks {
-    shadowJar {
-        relocate("dev.jorel.commandapi", "vn.id.tozydev.phantom.paper.commandapi")
-    }
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "Local"
-            url = uri(layout.buildDirectory.dir("artifacts/maven"))
-        }
+paperLibrary {
+    localPublishingRepository {
+        url = uri(rootProject.layout.buildDirectory.dir("artifacts/maven"))
     }
 }
