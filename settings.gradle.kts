@@ -14,4 +14,12 @@ subproject("paper-core")
 subproject("database-jdbc")
 subproject("database-exposed")
 
-// includeBuild("examples")
+val enableExamples =
+    providers
+        .gradleProperty("enable.examples")
+        .getOrElse(providers.environmentVariable("ENABLE_EXAMPLES").getOrElse("false"))
+        .toBoolean()
+
+if (enableExamples) {
+    includeBuild("examples")
+}
