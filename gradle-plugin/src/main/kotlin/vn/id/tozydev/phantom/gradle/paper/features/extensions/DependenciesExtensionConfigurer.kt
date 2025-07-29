@@ -1,4 +1,4 @@
-package vn.id.tozydev.phantom.gradle.paper.config
+package vn.id.tozydev.phantom.gradle.paper.features.extensions
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.ExternalModuleDependency
@@ -7,9 +7,11 @@ import org.gradle.api.plugins.JavaPlugin
 import org.gradle.kotlin.dsl.create
 import vn.id.tozydev.phantom.gradle.BuildConfig
 import vn.id.tozydev.phantom.gradle.DependenciesRes
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
 import vn.id.tozydev.phantom.gradle.paper.PaperProjectExtension
+import vn.id.tozydev.phantom.gradle.paper.features.plugin.DynamicLibraryLoaderConfigurer
 
-object DependenciesExtensionConfigurer : ProjectConfigurer<PaperProjectExtension> {
+object DependenciesExtensionConfigurer : FeatureConfigurer<PaperProjectExtension> {
     override fun invoke(
         project: Project,
         extension: PaperProjectExtension,

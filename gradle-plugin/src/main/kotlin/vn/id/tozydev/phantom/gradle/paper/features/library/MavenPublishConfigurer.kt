@@ -1,4 +1,4 @@
-package vn.id.tozydev.phantom.gradle.paper.config
+package vn.id.tozydev.phantom.gradle.paper.features.library
 
 import com.vanniktech.maven.publish.MavenPublishPlugin
 import org.gradle.api.Project
@@ -8,9 +8,10 @@ import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import velaReleases
 import velaSnapshots
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
 import vn.id.tozydev.phantom.gradle.paper.PaperLibraryProjectExtension
 
-object MavenPublishConfigurer : ProjectConfigurer<PaperLibraryProjectExtension> {
+object MavenPublishConfigurer : FeatureConfigurer<PaperLibraryProjectExtension> {
     override fun invoke(
         project: Project,
         extension: PaperLibraryProjectExtension,

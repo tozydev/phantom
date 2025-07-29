@@ -1,4 +1,4 @@
-package vn.id.tozydev.phantom.gradle.paper.config
+package vn.id.tozydev.phantom.gradle.paper.features.plugin
 
 import com.palantir.javapoet.AnnotationSpec
 import com.palantir.javapoet.ClassName
@@ -33,15 +33,17 @@ import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.annotations.NotNull
 import org.slf4j.LoggerFactory
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
 import vn.id.tozydev.phantom.gradle.paper.PaperPluginProjectExtension
 import java.nio.file.Path
 import java.time.LocalDateTime
 import javax.annotation.processing.Generated
 import javax.inject.Inject
 import javax.lang.model.element.Modifier
+import kotlin.collections.iterator
 import kotlin.io.path.createDirectories
 
-object DynamicLibraryLoaderConfigurer : ProjectConfigurer<PaperPluginProjectExtension> {
+object DynamicLibraryLoaderConfigurer : FeatureConfigurer<PaperPluginProjectExtension> {
     private val logger = LoggerFactory.getLogger(DynamicLibraryLoaderConfigurer::class.java)
 
     private const val DEFAULT_LOADER_PACKAGE = "vn.id.tozydev.phantom.paper.loader"

@@ -1,6 +1,4 @@
-@file:Suppress("unused")
-
-package vn.id.tozydev.phantom.gradle.paper.config
+package vn.id.tozydev.phantom.gradle.paper.features.plugin
 
 import org.gradle.api.Project
 import org.gradle.jvm.toolchain.JavaLanguageVersion
@@ -11,11 +9,12 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.named
 import org.gradle.kotlin.dsl.withType
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
 import vn.id.tozydev.phantom.gradle.paper.PaperPluginProjectExtension
 import xyz.jpenilla.runpaper.RunPaperPlugin
 import xyz.jpenilla.runpaper.task.RunServer
 
-object DebugServerConfigurer : ProjectConfigurer<PaperPluginProjectExtension> {
+object DebugServerConfigurer : FeatureConfigurer<PaperPluginProjectExtension> {
     override fun invoke(
         project: Project,
         extension: PaperPluginProjectExtension,

@@ -1,13 +1,14 @@
-package vn.id.tozydev.phantom.gradle.paper.config
+package vn.id.tozydev.phantom.gradle.paper.features.jvm
 
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
 import vn.id.tozydev.phantom.gradle.paper.PaperProjectExtension
 
-object KotlinConfigurer : ProjectConfigurer<PaperProjectExtension> {
+object KotlinConfigurer : FeatureConfigurer<PaperProjectExtension> {
     override fun invoke(
         project: Project,
         extension: PaperProjectExtension,

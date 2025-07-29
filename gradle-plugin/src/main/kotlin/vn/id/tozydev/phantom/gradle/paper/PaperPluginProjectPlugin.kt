@@ -5,19 +5,19 @@ import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.newInstance
 import org.gradle.kotlin.dsl.polymorphicDomainObjectContainer
 import vn.id.tozydev.phantom.gradle.BuildConfig
-import vn.id.tozydev.phantom.gradle.paper.config.DebugServerConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.DependenciesExtensionConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.DynamicLibraryLoaderConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.JavaConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.KotlinConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.PaperPluginYmlConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.PaperweightUserdevConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.ProjectConfigurer
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.plugin.DebugServerConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.extensions.DependenciesExtensionConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.plugin.DynamicLibraryLoaderConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.jvm.JavaConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.jvm.KotlinConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.plugin.PaperPluginYmlConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.paperweight.PaperweightUserdevConfigurer
 import xyz.jpenilla.runtask.pluginsapi.DownloadPluginsSpec
 import xyz.jpenilla.runtask.pluginsapi.PluginApi
 
 abstract class PaperPluginProjectPlugin : BasePaperProjectPlugin<PaperPluginProjectExtension>() {
-    override val configurers: List<ProjectConfigurer<PaperPluginProjectExtension>> =
+    override val configurers: List<FeatureConfigurer<in PaperPluginProjectExtension>> =
         listOf(
             JavaConfigurer,
             KotlinConfigurer,

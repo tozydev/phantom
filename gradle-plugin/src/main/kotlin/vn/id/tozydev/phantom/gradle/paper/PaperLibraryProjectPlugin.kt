@@ -3,12 +3,12 @@ package vn.id.tozydev.phantom.gradle.paper
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.create
 import vn.id.tozydev.phantom.gradle.BuildConfig
-import vn.id.tozydev.phantom.gradle.paper.config.DependenciesExtensionConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.JavaLibraryConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.KotlinConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.MavenPublishConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.PaperweightUserdevConfigurer
-import vn.id.tozydev.phantom.gradle.paper.config.ProjectConfigurer
+import vn.id.tozydev.phantom.gradle.FeatureConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.extensions.DependenciesExtensionConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.library.JavaLibraryConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.jvm.KotlinConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.library.MavenPublishConfigurer
+import vn.id.tozydev.phantom.gradle.paper.features.paperweight.PaperweightUserdevConfigurer
 
 abstract class PaperLibraryProjectPlugin : BasePaperProjectPlugin<PaperLibraryProjectExtension>() {
     override fun createExtension(project: Project): PaperLibraryProjectExtension =
@@ -22,7 +22,7 @@ abstract class PaperLibraryProjectPlugin : BasePaperProjectPlugin<PaperLibraryPr
                 minecraftVersion.convention(BuildConfig.MINECRAFT_VERSION)
             }
 
-    override val configurers: List<ProjectConfigurer<PaperLibraryProjectExtension>> =
+    override val configurers: List<FeatureConfigurer<in PaperLibraryProjectExtension>> =
         listOf(
             JavaLibraryConfigurer,
             KotlinConfigurer,
