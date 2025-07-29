@@ -18,6 +18,7 @@ jobs:
 
     outputs:
       release-created: ${{ steps.release.outputs.releases_created }}
+      tag-name: ${{ steps.release.outputs.tag_name }}
 
     steps:
       - name: Release Please Action
@@ -64,3 +65,12 @@ jobs:
         env:
           VELA_USERNAME: ${{ secrets.VELA_USERNAME }}
           VELA_PASSWORD: ${{ secrets.VELA_PASSWORD }}
+
+      - name: Build phantom-paper-plugin
+        run: ./gradlew phantom-paper-plugin:build
+
+      - name: Upload phantom-paper-plugin release artifact
+        run: gh release upload \
+          ${{ needs.release.outputs.tag-name }} \
+          paper-plugin/build/libs/*.jar \
+          --clobber \
