@@ -13,8 +13,12 @@ dependencies {
 
 paperPlugin {
     metadata {
+        name = "PhantomPaper"
         main = "vn.id.tozydev.phatom.paper.PhantomCorePaperPlugin"
+        apiVersion = "1.21"
         author = "tozydev"
+        website = "https://tozydev.id.vn/"
+        foliaSupported = true
     }
     runServer {
         acceptEula = true
