@@ -12,7 +12,7 @@ buildconfig = "5.6.7"
 shadow = "9.0.0-rc2"
 
 # Default versions
-minecraft = "1.21.7"
+minecraft = "1.21.8"
 
 [libraries]
 javapoet = { module = "com.palantir.javapoet:javapoet", version.ref = "javapoet" }
