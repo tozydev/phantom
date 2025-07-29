@@ -11,6 +11,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "phantom"
 
 subproject("paper-core")
+subproject("paper-plugin")
 subproject("database-jdbc")
 subproject("database-exposed")
 
