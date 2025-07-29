@@ -70,6 +70,8 @@ jobs:
         run: ./gradlew phantom-paper-plugin:build
 
       - name: Upload phantom-paper-plugin release artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release upload \
           ${{ needs.release.outputs.tag-name }} \
           paper-plugin/build/libs/*.jar \
