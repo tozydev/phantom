@@ -53,3 +53,23 @@ abstract class GenerateDynamicLibrariesLoaderClassTask : DefaultTask() {
         builder.writeToPath(output)
     }
 }
+
+private val PAPERWEIGHT_INTERNAL_REPOSITORY_HOSTS =
+    setOf(
+        "maven.fabricmc.net",
+        "maven.neoforged.net",
+        "maven.parchmentmc.org",
+    )
+
+fun GenerateDynamicLibrariesLoaderClassTask.excludePaperweightInternalRepositories() =
+    excludeRepositoryHosts(PAPERWEIGHT_INTERNAL_REPOSITORY_HOSTS)
+
+fun GenerateDynamicLibrariesLoaderClassTask.excludeRepositoryHosts(vararg hosts: String) = excludeRepositoryHosts(hosts.asIterable())
+
+fun GenerateDynamicLibrariesLoaderClassTask.excludeRepositoryHosts(hosts: Iterable<String>) =
+    filterRepositories { (_, url) -> url.host !in hosts }
+
+fun GenerateDynamicLibrariesLoaderClassTask.filterRepositories(filter: (Map.Entry<String, URI>) -> Boolean) {
+    val filteredRepositories = repositories.get().filter(filter)
+    repositories.set(filteredRepositories)
+}

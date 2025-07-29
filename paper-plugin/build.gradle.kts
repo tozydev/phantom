@@ -1,3 +1,5 @@
+import vn.id.tozydev.phantom.gradle.paper.features.plugin.excludePaperweightInternalRepositories
+
 plugins {
     `paper-plugin`
     shadow
@@ -30,5 +32,11 @@ tasks {
 
     assemble {
         dependsOn(shadowJar)
+    }
+
+    afterEvaluate {
+        generateDynamicLibrariesLoaderClass {
+            excludePaperweightInternalRepositories()
+        }
     }
 }
