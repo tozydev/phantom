@@ -10,6 +10,7 @@ import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
+import java.net.URI
 import javax.inject.Inject
 import kotlin.io.path.createDirectories
 
@@ -22,7 +23,7 @@ abstract class GenerateDynamicLibrariesLoaderClassTask : DefaultTask() {
     abstract val className: Property<String>
 
     @get:Input
-    abstract val repositories: MapProperty<String, String>
+    abstract val repositories: MapProperty<String, URI>
 
     @get:Input
     abstract val dependencies: ListProperty<String>
@@ -43,7 +44,10 @@ abstract class GenerateDynamicLibrariesLoaderClassTask : DefaultTask() {
         val builder = DynamicLibrariesLoaderClassBuilder()
         builder.packageName = packageName.get()
         builder.className = className.get()
-        builder.repositories = repositories.get()
+        builder.repositories =
+            repositories.get().mapValues { (_, uri) ->
+                uri.toASCIIString()
+            }
         builder.dependencies = dependencies.get()
 
         builder.writeToPath(output)

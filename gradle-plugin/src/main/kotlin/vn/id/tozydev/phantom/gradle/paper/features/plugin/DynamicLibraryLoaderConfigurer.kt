@@ -16,6 +16,7 @@ import org.gradle.kotlin.dsl.getByType
 import org.slf4j.LoggerFactory
 import vn.id.tozydev.phantom.gradle.FeatureConfigurer
 import vn.id.tozydev.phantom.gradle.paper.PaperPluginProjectExtension
+import java.net.URI
 
 object DynamicLibraryLoaderConfigurer : FeatureConfigurer<PaperPluginProjectExtension> {
     private val logger = LoggerFactory.getLogger(DynamicLibraryLoaderConfigurer::class.java)
@@ -28,7 +29,7 @@ object DynamicLibraryLoaderConfigurer : FeatureConfigurer<PaperPluginProjectExte
             "repo1.maven.org",
             "repo.maven.apache.org",
         )
-    private const val MAVEN_CENTRAL_MIRROR = "https://maven-central-asia.storage-download.googleapis.com/maven2/"
+    private val MAVEN_CENTRAL_MIRROR = URI.create("https://maven-central-asia.storage-download.googleapis.com/maven2/")
 
     const val LIBRARY_CONFIGURATION_NAME = "library"
 
@@ -66,7 +67,7 @@ object DynamicLibraryLoaderConfigurer : FeatureConfigurer<PaperPluginProjectExte
                             .collectMavenRepositories()
                             .excludeMavenCentral()
                             .filter(libraryRepositoriesFilter ?: { true })
-                            .associate { it.name to it.url.toASCIIString() },
+                            .associate { it.name to it.url },
                     )
                     repositories.put(
                         ArtifactRepositoryContainer.DEFAULT_MAVEN_CENTRAL_REPO_NAME,
