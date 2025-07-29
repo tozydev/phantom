@@ -23,6 +23,12 @@ configurations.compileOnly {
     extendsFrom(shade)
 }
 
+configurations.shadowRuntimeElements {
+    attributes {
+        attribute(GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE, objects.named("9.0.0-rc-4"))
+    }
+}
+
 configurations.implementation.extendsFrom(configurations.shadow)
 
 dependencies {
