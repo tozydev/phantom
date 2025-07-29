@@ -31,5 +31,5 @@ fun DownloadPluginsSpec.luckPerms(version: String = "5.5.0") {
 }
 
 fun DownloadPluginsSpec.itemNbtApi(version: String = "2.15.1") {
-    modrinth("NBT-API", version)
+    modrinth("NBTAPI", version)
 }
