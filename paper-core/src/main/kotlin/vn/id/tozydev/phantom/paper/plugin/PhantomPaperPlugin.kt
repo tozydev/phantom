@@ -4,6 +4,7 @@ import com.github.shynixn.mccoroutine.folia.SuspendingJavaPlugin
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPILogger
+import xyz.xenondevs.invui.InvUI
 
 /**
  * Base class for Phantom plugins that use the Paper API.
@@ -13,6 +14,9 @@ abstract class PhantomPaperPlugin : SuspendingJavaPlugin() {
 
     protected val isCommandApiEnabled: Boolean
         get() = configureCommandApi != null
+
+    protected open val isInvUIEnabled: Boolean
+        get() = false
 
     override fun onLoad() {
         if (isCommandApiEnabled) {
@@ -29,6 +33,9 @@ abstract class PhantomPaperPlugin : SuspendingJavaPlugin() {
     override fun onEnable() {
         if (isCommandApiEnabled) {
             CommandAPI.onEnable()
+        }
+        if (isInvUIEnabled) {
+            InvUI.getInstance().setPlugin(this)
         }
         super.onEnable()
     }

@@ -5,6 +5,12 @@ import org.gradle.api.artifacts.repositories.MavenArtifactRepository
 import org.gradle.kotlin.dsl.maven
 import vn.id.tozydev.phantom.gradle.BuildConfig
 
+fun RepositoryHandler.xenondevsReleases(action: MavenArtifactRepository.() -> Unit = {}) =
+    maven("https://repo.xenondevs.xyz/releases") {
+        name = "XenonDevsReleases"
+        action()
+    }
+
 fun RepositoryHandler.engineHub(action: MavenArtifactRepository.() -> Unit = {}) =
     maven("https://maven.enginehub.org/repo/") {
         name = "EngineHub"

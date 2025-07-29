@@ -4,6 +4,10 @@ plugins {
     `paper-library`
 }
 
+repositories {
+    xenondevsReleases()
+}
+
 dependencies {
     api(platform(libs.kotlin.bom)) {
         version {
@@ -33,6 +37,11 @@ dependencies {
 
     api(libs.commandapi.bukkit.shade.mojmap)
     api(libs.commandapi.bukkit.kotlin)
+
+    api(libs.invui)
+    api(libs.invuiKotlin) {
+        exclude(group = "org.jetbrains.kotlin")
+    }
 }
 
 paperLibrary {

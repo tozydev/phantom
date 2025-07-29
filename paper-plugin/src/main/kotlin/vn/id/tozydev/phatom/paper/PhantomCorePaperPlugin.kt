@@ -7,4 +7,6 @@ class PhantomCorePaperPlugin : PhantomPaperPlugin() {
     override val configureCommandApi: (CommandAPIBukkitConfig.() -> Unit)? = {
         shouldHookPaperReload(true)
     }
+
+    override val isInvUIEnabled: Boolean = true
 }

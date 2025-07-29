@@ -10,6 +10,7 @@ exposed = "1.0.0-beta-4"
 hikari-cp = "7.0.0"
 
 commandapi = "10.1.2"
+invui = "2.0.0-alpha.16"
 
 [libraries]
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom" }
@@ -35,6 +36,9 @@ exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datet
 
 commandapi-bukkit-shade-mojmap = { module = "dev.jorel:commandapi-bukkit-shade-mojang-mapped", version.ref = "commandapi" }
 commandapi-bukkit-kotlin = { module = "dev.jorel:commandapi-bukkit-kotlin", version.ref = "commandapi" }
+
+invui = { module = "xyz.xenondevs.invui:invui", version.ref = "invui" }
+invuiKotlin = { module = "xyz.xenondevs.invui:invui-kotlin", version.ref = "invui" }
 
 [bundles]
 exposed = ["exposed-core", "exposed-jdbc", "exposed-dao", "exposed-kotlin-datetime"]

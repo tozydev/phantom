@@ -5,6 +5,10 @@ plugins {
     shadow
 }
 
+repositories {
+    xenondevsReleases()
+}
+
 dependencies {
     implementation(projects.phantomPaperCore)
     implementation(projects.phantomDatabaseJdbc)
