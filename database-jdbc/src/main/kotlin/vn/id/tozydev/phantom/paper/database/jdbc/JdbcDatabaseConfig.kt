@@ -43,7 +43,7 @@ internal val JdbcDatabaseConfig.driverClassName: String
 
 private val SQLITE_FILE_START_PART = "sqlite:(/|\\./)?(.+)".toRegex(RegexOption.IGNORE_CASE)
 
-private fun JdbcDatabaseConfig.jdbcUrl(parent: Path) =
+internal fun JdbcDatabaseConfig.jdbcUrl(parent: Path) =
     url.replace(SQLITE_FILE_START_PART) {
         "sqlite:${parent.resolve(it.groups[2]?.value ?: "data.sqlite3").normalize()}"
     }
