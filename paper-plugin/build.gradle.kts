@@ -1,3 +1,5 @@
+import vn.id.tozydev.phantom.gradle.paper.features.plugin.libraryRepositoriesFilter
+
 plugins {
     `paper-plugin`
     shadow
@@ -17,6 +19,7 @@ paperPlugin {
     runServer {
         acceptEula = true
     }
+    libraryRepositoriesFilter()
 }
 
 tasks {

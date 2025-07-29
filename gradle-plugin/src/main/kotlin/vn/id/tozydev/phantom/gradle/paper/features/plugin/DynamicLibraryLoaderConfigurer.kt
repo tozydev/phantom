@@ -10,6 +10,7 @@ import org.gradle.api.attributes.Category
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.tasks.SourceSet
 import org.gradle.api.tasks.SourceSetContainer
+import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.getByType
 import org.slf4j.LoggerFactory
@@ -56,12 +57,15 @@ object DynamicLibraryLoaderConfigurer : FeatureConfigurer<PaperPluginProjectExte
             }
 
             afterEvaluate {
+                val libraryRepositoriesFilter = extension.extensions.findByType<LibraryRepositoriesFilter>()
+
                 task.configure {
                     outputDir.convention(layout.buildDirectory.dir("generated/sources/phantom/java"))
                     repositories.set(
                         project.repositories
                             .collectMavenRepositories()
                             .excludeMavenCentral()
+                            .filter(libraryRepositoriesFilter ?: { true })
                             .associate { it.name to it.url.toASCIIString() },
                     )
                     repositories.put(
