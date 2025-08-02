@@ -25,7 +25,7 @@ configurations.compileOnly {
 
 configurations.shadowRuntimeElements {
     attributes {
-        attribute(GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE, objects.named("9.0.0-rc-4"))
+        attribute(GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE, objects.named("9.0.0"))
     }
 }
 
