@@ -22,6 +22,15 @@
         "https://repo.extendedclip.com/releases/",
         "https://repo.dmulloy2.net/repository/public/"
       ]
+    },
+    {
+      "matchFileNames": [
+        "gradle/libs.versions.toml"
+      ],
+      "registryUrls": [
+        "https://repo.maven.apache.org/maven2",
+        "https://repo.xenondevs.xyz/releases"
+      ]
     }
   ]
 }
