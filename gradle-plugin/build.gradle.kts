@@ -101,7 +101,7 @@ tasks {
     }
 
     shadowJar {
-        enableRelocation = true
+        enableAutoRelocation = true
         archiveClassifier = ""
         relocationPrefix = "phantom.libs"
         configurations = listOf(shade)
