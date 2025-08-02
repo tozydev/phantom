@@ -4,6 +4,7 @@ import com.github.shynixn.mccoroutine.folia.SuspendingJavaPlugin
 import dev.jorel.commandapi.CommandAPI
 import dev.jorel.commandapi.CommandAPIBukkitConfig
 import dev.jorel.commandapi.CommandAPILogger
+import vn.id.tozydev.phantom.paper.chat.ChatInputService
 import xyz.xenondevs.invui.InvUI
 
 /**
@@ -37,10 +38,12 @@ abstract class PhantomPaperPlugin : SuspendingJavaPlugin() {
         if (isInvUIEnabled) {
             InvUI.getInstance().setPlugin(this)
         }
+        ChatInputService.initialize(this)
         super.onEnable()
     }
 
     override fun onDisable() {
+        ChatInputService.uninitialize()
         if (isCommandApiEnabled) {
             CommandAPI.onDisable()
         }
