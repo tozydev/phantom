@@ -73,7 +73,7 @@ data class CustomModelDataComponentBuilder(
         return target
     }
 
-    object Serializer : TypeSerializer<CustomModelDataComponentBuilder> {
+    internal object Serializer : TypeSerializer<CustomModelDataComponentBuilder> {
         override fun deserialize(
             type: Type,
             node: ConfigurationNode,
@@ -132,7 +132,7 @@ data class DamageableBuilder(
         return target
     }
 
-    object Serializer : TypeSerializer<DamageableBuilder> {
+    internal object Serializer : TypeSerializer<DamageableBuilder> {
         override fun deserialize(
             type: Type,
             node: ConfigurationNode,
@@ -181,7 +181,7 @@ data class SkullBuilder(
         return target
     }
 
-    object Serializer : TypeSerializer<SkullBuilder> {
+    internal object Serializer : TypeSerializer<SkullBuilder> {
         override fun deserialize(
             type: Type,
             node: ConfigurationNode,
@@ -222,7 +222,7 @@ data class LeatherArmorBuilder(
         return target
     }
 
-    object Serializer : TypeSerializer<LeatherArmorBuilder> {
+    internal object Serializer : TypeSerializer<LeatherArmorBuilder> {
         override fun deserialize(
             type: Type,
             node: ConfigurationNode,

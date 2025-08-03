@@ -26,7 +26,7 @@ data class GuiItem(
     val default: ItemStackBuilder,
     val states: Map<String, ItemStackBuilder> = emptyMap(),
 ) {
-    object Serializer : TypeSerializer<GuiItem> {
+    internal object Serializer : TypeSerializer<GuiItem> {
         override fun deserialize(
             type: Type,
             node: ConfigurationNode,

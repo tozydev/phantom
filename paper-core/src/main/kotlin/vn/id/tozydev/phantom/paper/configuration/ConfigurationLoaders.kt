@@ -2,8 +2,8 @@ package vn.id.tozydev.phantom.paper.configuration
 
 import org.bukkit.plugin.Plugin
 import org.spongepowered.configurate.ConfigurationOptions
-import org.spongepowered.configurate.kotlin.objectMapperFactory
 import org.spongepowered.configurate.yaml.YamlConfigurationLoader
+import vn.id.tozydev.phantom.paper.configuration.serializers.ConfigurationSerializers
 import kotlin.io.path.notExists
 
 /**
@@ -13,7 +13,7 @@ import kotlin.io.path.notExists
  */
 fun Plugin.yamlConfigurationLoader(
     name: String = "config",
-    options: (ConfigurationOptions) -> ConfigurationOptions = { it },
+    options: ConfigurationOptions.() -> ConfigurationOptions = { this },
 ): YamlConfigurationLoader {
     val configPathName = "$name.yml"
     val path = dataPath.resolve(configPathName)
@@ -23,7 +23,6 @@ fun Plugin.yamlConfigurationLoader(
     return YamlConfigurationLoader
         .builder()
         .path(dataPath.resolve(configPathName))
-        .defaultOptions { defaultOptions ->
-            options(defaultOptions.serializers { it.registerAnnotatedObjects(objectMapperFactory()) })
-        }.build()
+        .defaultOptions { (it + ConfigurationSerializers.Defaults).options() }
+        .build()
 }
