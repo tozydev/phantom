@@ -6,6 +6,7 @@ plugins {
 
 repositories {
     xenondevsReleases()
+    codeMc()
 }
 
 dependencies {
@@ -42,6 +43,8 @@ dependencies {
     api(libs.invuiKotlin) {
         exclude(group = "org.jetbrains.kotlin")
     }
+
+    pluginDependencies.itemNbtApi()
 }
 
 paperLibrary {
