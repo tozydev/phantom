@@ -1,6 +1,7 @@
 package vn.id.tozydev.phantom.paper.message.configuration
 
 import org.spongepowered.configurate.ConfigurationNode
+import org.spongepowered.configurate.kotlin.extensions.get
 import vn.id.tozydev.phantom.paper.message.ActionbarMessage
 import vn.id.tozydev.phantom.paper.message.EmptyMessage
 import vn.id.tozydev.phantom.paper.message.Message
@@ -53,19 +54,19 @@ internal object MessageNodeParser {
 
     private fun parseMessageNode(node: ConfigurationNode): Message {
         var contentNode = node.node(TEXT)
-        if (contentNode.empty()) {
+        if (!contentNode.virtual()) {
             // Scalar value: `text: "Hello, world!"`
             return parseTextNode(contentNode)
         }
 
         contentNode = node.node(ACTIONBAR)
-        if (contentNode.empty()) {
+        if (!contentNode.virtual()) {
             // Scalar value: `actionbar: "This is an action bar message."`
             return parseActionbarNode(contentNode)
         }
 
         contentNode = node.node(SOUND)
-        if (contentNode.empty()) {
+        if (!contentNode.virtual()) {
             return parseSoundNode(node)
         }
 
@@ -105,7 +106,7 @@ internal object MessageNodeParser {
             source = source.string,
             volume = volume.getFloat(1f),
             pitch = pitch.getFloat(1f),
-            seed = seed.long,
+            seed = seed.get(),
         )
     }
 
