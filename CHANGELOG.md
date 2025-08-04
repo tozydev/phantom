@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/tozydev/phantom/compare/v0.4.0...v0.4.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* **paper-core:** update MessageNodeParser to use virtual node checks for message parsing ([6f98bb6](https://github.com/tozydev/phantom/commit/6f98bb6b0479318300bcc8cab293294b9cabbd46))
+
 ## [0.4.0](https://github.com/tozydev/phantom/compare/v0.3.0...v0.4.0) (2025-08-03)
 
 
