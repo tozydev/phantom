@@ -52,3 +52,11 @@ paperLibrary {
         url = uri(rootProject.layout.buildDirectory.dir("artifacts/maven"))
     }
 }
+
+testing {
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useKotlinTest(getKotlinPluginVersion())
+        }
+    }
+}
