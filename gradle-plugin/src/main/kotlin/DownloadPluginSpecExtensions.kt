@@ -1,5 +1,6 @@
 @file:Suppress("unused")
 
+import vn.id.tozydev.phantom.gradle.BuildConfig
 import xyz.jpenilla.runtask.pluginsapi.DownloadPluginsSpec
 
 fun DownloadPluginsSpec.worldEdit(version: String = "7.3.15-beta-02") = hangar("WorldEdit", version)
@@ -32,4 +33,13 @@ fun DownloadPluginsSpec.luckPerms(version: String = "5.5.0") {
 
 fun DownloadPluginsSpec.itemNbtApi(version: String = "2.15.1") {
     modrinth("NBTAPI", version)
+}
+
+fun DownloadPluginsSpec.phantomPaperPlugin() {
+    github(
+        "tozydev",
+        "phantom",
+        "v${BuildConfig.PHANTOM_VERSION}",
+        "phantom-paper-plugin-${BuildConfig.PHANTOM_VERSION}.jar",
+    )
 }
