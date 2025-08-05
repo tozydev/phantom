@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/tozydev/phantom/compare/v0.4.1...v0.5.0) (2025-08-05)
+
+
+### Features
+
+* **gradle-plugin:** add phantomPaperPlugin function to download Phantom Paper plugin ([ff8c616](https://github.com/tozydev/phantom/commit/ff8c616007c65714515cf28691cd7ba8e4bbd2ea))
+
 ## [0.4.1](https://github.com/tozydev/phantom/compare/v0.4.0...v0.4.1) (2025-08-04)
 
 
