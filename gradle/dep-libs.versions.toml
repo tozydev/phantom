@@ -10,7 +10,7 @@ world-guard = { module = "com.sk89q.worldguard:worldguard-bukkit", version = "7.
 
 ### Database drivers
 mysql = { module = "com.mysql:mysql-connector-j", version = "9.4.0" }
-mariadb = { module = "org.mariadb.jdbc:mariadb-java-client", version = "3.5.4" }
+mariadb = { module = "org.mariadb.jdbc:mariadb-java-client", version = "3.5.5" }
 postgresql = { module = "org.postgresql:postgresql", version = "42.7.7" }
 sqlite = { module = "org.xerial:sqlite-jdbc", version = "3.50.3.0" }
 h2 = { module = "com.h2database:h2", version = "2.3.232" }
