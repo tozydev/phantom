@@ -16,7 +16,7 @@ fun DownloadPluginsSpec.protocolLib(version: String = "5.3.0") {
 }
 
 fun DownloadPluginsSpec.essentialsX(version: String = "2.21.1") {
-    hangar("EssentialsX", version)
+    modrinth("EssentialsX", version)
 }
 
 fun DownloadPluginsSpec.vault(version: String = "1.7.3") {
