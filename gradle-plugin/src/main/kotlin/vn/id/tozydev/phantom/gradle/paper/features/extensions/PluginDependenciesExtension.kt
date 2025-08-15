@@ -79,4 +79,14 @@ abstract class PluginDependenciesExtension(
         dependencies.add(configurationName, dep)
         return dep
     }
+
+    fun packetEvents(
+        version: String = DependenciesRes.PACKETEVENTS_SPIGOT_VERSION,
+        configurationName: String = JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME,
+        action: ExternalModuleDependency.() -> Unit = {},
+    ): ExternalModuleDependency {
+        val dep = dependencies.create("${DependenciesRes.PACKETEVENTS_SPIGOT_MODULE}:$version", action)
+        dependencies.add(configurationName, dep)
+        return dep
+    }
 }

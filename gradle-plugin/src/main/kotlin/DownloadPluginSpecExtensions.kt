@@ -43,3 +43,7 @@ fun DownloadPluginsSpec.phantomPaperPlugin() {
         "phantom-paper-plugin-${BuildConfig.PHANTOM_VERSION}.jar",
     )
 }
+
+fun DownloadPluginsSpec.packetEventsSpigot(version: String = "2.9.4") {
+    modrinth("PacketEvents", "$version-spigot")
+}
