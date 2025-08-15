@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.6.0](https://github.com/tozydev/phantom/compare/v0.5.0...v0.6.0) (2025-08-15)
+
+
+### Features
+
+* **core:** add TagResolver and placeholder utility functions ([68a3b2f](https://github.com/tozydev/phantom/commit/68a3b2f378be88648b3ecac4e3eee646358e4283))
+* **gradle-plugin:** add PacketEvents Spigot dependency extension ([0437a4f](https://github.com/tozydev/phantom/commit/0437a4f4900df0313f7727e0914705de0218f978))
+* **gradle-plugin:** add Phantom repository injection logic when apply phantom libraries ([d60792b](https://github.com/tozydev/phantom/commit/d60792bcb856448800c83d36ff7f04802b86fa72))
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.zaxxer:hikaricp to v7.0.1 ([#42](https://github.com/tozydev/phantom/issues/42)) ([27c3970](https://github.com/tozydev/phantom/commit/27c3970fc3d5cb52eb6a217e8f4052f2745e50ec))
+* **deps:** update dependency org.mariadb.jdbc:mariadb-java-client to v3.5.5 ([#44](https://github.com/tozydev/phantom/issues/44)) ([27c757e](https://github.com/tozydev/phantom/commit/27c757e16abee20fb997e1b7a03321ccefc6fec1))
+* **deps:** update invui to v2.0.0-alpha.17 ([#43](https://github.com/tozydev/phantom/issues/43)) ([a1c03e4](https://github.com/tozydev/phantom/commit/a1c03e4956159039463739a2ca0af6c0ce0c714e))
+* **gradle-plugin:** change EssentialsX plugin download to modrinth ([a7cf2e8](https://github.com/tozydev/phantom/commit/a7cf2e87cdd3cef292f80aec61bff14a4ac1070d))
+* **gradle-plugin:** update plugin versions for WorldEdit, ProtocolLib, and EssentialsX ([124362b](https://github.com/tozydev/phantom/commit/124362b456600791e6b839a85fb236ac786fdd54))
+* **gradle-plugin:** update ProtocolLib version to 5.4.0 ([68bc9ab](https://github.com/tozydev/phantom/commit/68bc9ab44dfd440b75d35bf67746c7ef4e022a9f))
+
 ## [0.5.0](https://github.com/tozydev/phantom/compare/v0.4.1...v0.5.0) (2025-08-05)
 
 
