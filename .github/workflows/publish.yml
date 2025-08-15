@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Get JDK version
         run: echo "JDK_VERSION=$(grep 'java.version' gradle-plugin/gradle.properties | cut -d '=' -f2)" >> "$GITHUB_ENV"
