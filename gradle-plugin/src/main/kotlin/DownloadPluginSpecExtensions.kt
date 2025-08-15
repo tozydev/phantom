@@ -3,11 +3,11 @@
 import vn.id.tozydev.phantom.gradle.BuildConfig
 import xyz.jpenilla.runtask.pluginsapi.DownloadPluginsSpec
 
-fun DownloadPluginsSpec.worldEdit(version: String = "7.3.15-beta-02") = hangar("WorldEdit", version)
+fun DownloadPluginsSpec.worldEdit(version: String = "7.3.16") = hangar("WorldEdit", version)
 
 fun DownloadPluginsSpec.worldGuard(version: String = "7.0.14") = modrinth("WorldGuard", version)
 
-fun DownloadPluginsSpec.protocolLib(version: String = "5.3.0") {
+fun DownloadPluginsSpec.protocolLib(version: String = "5.4.0") {
     if (version == "dev") {
         url("https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/build/libs/ProtocolLib.jar")
     } else {
@@ -15,7 +15,7 @@ fun DownloadPluginsSpec.protocolLib(version: String = "5.3.0") {
     }
 }
 
-fun DownloadPluginsSpec.essentialsX(version: String = "2.21.1") {
+fun DownloadPluginsSpec.essentialsX(version: String = "2.21.2") {
     modrinth("EssentialsX", version)
 }
 
