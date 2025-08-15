@@ -19,8 +19,7 @@
         "https://maven.enginehub.org/repo/",
         "https://repo.codemc.io/repository/maven-public/",
         "https://jitpack.io",
-        "https://repo.extendedclip.com/releases/",
-        "https://repo.dmulloy2.net/repository/public/"
+        "https://repo.extendedclip.com/releases/"
       ]
     },
     {
