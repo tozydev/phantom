@@ -148,6 +148,10 @@ buildConfig {
         "VELA_RELEASES_URL",
         "\"${velaReleasesUrl}\"",
     )
+    buildConfigField(
+        "VELA_REPO_NAME",
+        "VelaRepo",
+    )
 
     forClass("DependenciesRes") {
         val depLibs = versionCatalogs.named("depLibs")

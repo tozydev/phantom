@@ -11,7 +11,7 @@ object DependenciesExtensionConfigurer : FeatureConfigurer<PaperProjectExtension
         extension: PaperProjectExtension,
     ): Unit =
         with(project) {
-            dependencies.extensions.create<PhantomDependenciesExtension>("phantomDependencies", dependencies)
+            dependencies.extensions.create<PhantomDependenciesExtension>("phantomDependencies", this)
             dependencies.extensions.create<PluginDependenciesExtension>("pluginDependencies", dependencies)
             dependencies.extensions.create<DatabaseDriversDependenciesExtension>("databaseDrivers", dependencies)
         }
