@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.1](https://github.com/tozydev/phantom/compare/v0.6.0...v0.6.1) (2025-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.zaxxer:hikaricp to v7.0.2 ([#50](https://github.com/tozydev/phantom/issues/50)) ([2207afc](https://github.com/tozydev/phantom/commit/2207afcf113cb1fa83bd46005d65a8aa3c05574c))
+* **deps:** update invui to v2.0.0-alpha.18 ([#51](https://github.com/tozydev/phantom/issues/51)) ([36850d2](https://github.com/tozydev/phantom/commit/36850d22a4cdb94a61829f344222007c92e36227))
+
 ## [0.6.0](https://github.com/tozydev/phantom/compare/v0.5.0...v0.6.0) (2025-08-15)
 
 
