@@ -4,6 +4,7 @@ package vn.id.tozydev.phantom.paper.inventory
 
 import com.destroystokyo.paper.profile.ProfileProperty
 import de.tr7zw.nbtapi.NBT
+import net.kyori.adventure.text.format.TextDecoration
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import org.bukkit.Color
@@ -265,9 +266,13 @@ fun ItemStackBuilder.toItemStack(
     val itemStack = ItemStack.of(Material.matchMaterial(type) ?: error("Invalid material type: $type"), amount)
 
     itemStack.editMeta { meta ->
-        displayName?.let { meta.displayName(miniMessage.deserialize(it, tagResolver)) }
+        displayName?.let {
+            meta.displayName(
+                miniMessage.deserialize(it, tagResolver).decoration(TextDecoration.ITALIC, false),
+            )
+        }
         if (lore.isNotEmpty()) {
-            meta.lore(lore.map { miniMessage.deserialize(it, tagResolver) })
+            meta.lore(lore.map { miniMessage.deserialize(it, tagResolver).decoration(TextDecoration.ITALIC, false) })
         }
         customModelData?.let { meta.setCustomModelDataComponent(it.apply(meta.customModelDataComponent)) }
         if (enchantments.isNotEmpty()) {
