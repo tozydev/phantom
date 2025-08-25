@@ -9,6 +9,7 @@ import vn.id.tozydev.phantom.paper.inventory.DamageableBuilder
 import vn.id.tozydev.phantom.paper.inventory.LeatherArmorBuilder
 import vn.id.tozydev.phantom.paper.inventory.SkullBuilder
 import vn.id.tozydev.phantom.paper.message.configuration.MessageSerializer
+import vn.id.tozydev.phantom.paper.nbt.NbtTagSerializer
 
 /**
  * Collection of serializers used in Phantom's configuration system.
@@ -29,6 +30,8 @@ object ConfigurationSerializers {
             registerExact(SkullBuilder.Serializer)
             registerExact(LeatherArmorBuilder.Serializer)
             registerExact(BukkitColorSerializer)
+            registerExact(PaperRegistrySerializers.ENCHANTMENT)
+            registerExact(NbtTagSerializer)
         }
     val GuiItems: TypeSerializerCollection =
         TypeSerializerCollection {
