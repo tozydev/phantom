@@ -6,6 +6,8 @@ import org.spongepowered.configurate.yaml.YamlConfigurationLoader
 import vn.id.tozydev.phantom.paper.configuration.serializers.ConfigurationSerializers
 import kotlin.io.path.notExists
 
+private const val YAML_EXTENSION = ".yml"
+
 /**
  * Create a [YamlConfigurationLoader] for the plugin.
  *
@@ -15,7 +17,7 @@ fun Plugin.yamlConfigurationLoader(
     name: String = "config",
     options: ConfigurationOptions.() -> ConfigurationOptions = { this },
 ): YamlConfigurationLoader {
-    val configPathName = "$name.yml"
+    val configPathName = "${name.removePrefix(YAML_EXTENSION)}$YAML_EXTENSION"
     val path = dataPath.resolve(configPathName)
     if (path.notExists()) {
         saveResource(configPathName, false)
