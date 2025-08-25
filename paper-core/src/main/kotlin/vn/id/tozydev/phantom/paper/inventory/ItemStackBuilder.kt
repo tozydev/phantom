@@ -26,7 +26,7 @@ import vn.id.tozydev.phantom.paper.Server
 import vn.id.tozydev.phantom.paper.nbt.NbtTag
 import vn.id.tozydev.phantom.paper.nbt.set
 import java.lang.reflect.Type
-import java.util.*
+import java.util.UUID
 
 /**
  * Quick and easy way to build an [ItemStack] with various properties.
@@ -302,7 +302,7 @@ private fun ItemStack.applyNbt(tags: List<NbtTag>) {
             tags.forEach { nbt.set(it) }
         }
     } catch (_: ClassNotFoundException) {
-        logger.warn("NBT API not found, skipping NBT application for ItemStack.")
+        logger.debug("NBT API not found, skipping NBT application for ItemStack.")
         return
     }
 }
