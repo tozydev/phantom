@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/tozydev/phantom/compare/v0.6.1...v0.6.2) (2025-08-25)
+
+
+### Bug Fixes
+
+* **paper-core:** wrong gui ingredients type ([b67827c](https://github.com/tozydev/phantom/commit/b67827cbf3c4f4ce43eabb5ce6832c162b6e6295))
+
 ## [0.6.1](https://github.com/tozydev/phantom/compare/v0.6.0...v0.6.1) (2025-08-25)
 
 
