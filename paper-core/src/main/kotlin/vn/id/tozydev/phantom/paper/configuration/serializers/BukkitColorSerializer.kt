@@ -21,8 +21,7 @@ object BukkitColorSerializer : TypeSerializer<Color> {
         node: ConfigurationNode,
     ): Color {
         if (!node.isMap) {
-            val raw = node.raw()
-            return when (raw) {
+            return when (val raw = node.raw()) {
                 is Color -> raw
                 is Int -> if (raw > RGB_MAX) Color.fromARGB(raw) else Color.fromRGB(raw)
                 is Long -> if (raw > RGB_MAX) Color.fromARGB(raw.toInt()) else Color.fromRGB(raw.toInt())
