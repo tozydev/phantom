@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.3](https://github.com/tozydev/phantom/compare/v0.6.2...v0.6.3) (2025-08-25)
+
+
+### Bug Fixes
+
+* **paper-core:** missing required serializer in item builder serialization ([476d8ce](https://github.com/tozydev/phantom/commit/476d8ce0405b29b760417dd72504f78d84e309e5))
+* **paper-core:** name and lore always italic in item stack builder ([0c7522e](https://github.com/tozydev/phantom/commit/0c7522e19165847643341545f24df294ca68591f))
+
 ## [0.6.2](https://github.com/tozydev/phantom/compare/v0.6.1...v0.6.2) (2025-08-25)
 
 
