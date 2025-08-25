@@ -18,7 +18,7 @@ data class GuiConfig(
     val title: String,
     val structure: List<String>,
     val actions: Map<String, Char> = emptyMap(),
-    val ingredients: Map<String, String> = emptyMap(),
+    val ingredients: Map<String, GuiItem> = emptyMap(),
 )
 
 /** Represents an item in a GUI, with a [default] item and optional [states]. */
