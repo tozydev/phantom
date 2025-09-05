@@ -10,7 +10,10 @@ import kotlinx.datetime.toJavaLocalTime
 import kotlinx.datetime.toLocalDateTime
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.StyleBuilderApplicable
+import net.kyori.adventure.text.minimessage.Context
+import net.kyori.adventure.text.minimessage.tag.Tag
 import net.kyori.adventure.text.minimessage.tag.TagPattern
+import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue
 import net.kyori.adventure.text.minimessage.tag.resolver.Formatter
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
@@ -94,3 +97,6 @@ infix fun @receiver:TagPattern String.booleanChoice(value: Boolean) = builder.re
 
 context(builder: TagResolver.Builder)
 infix fun @receiver:TagPattern String.booleanChoice(value: () -> Boolean) = booleanChoice(value())
+
+context(builder: TagResolver.Builder)
+operator fun String.invoke(handler: (ArgumentQueue, Context) -> Tag) = builder.resolver(TagResolver.resolver(this, handler))
