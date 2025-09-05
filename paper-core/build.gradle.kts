@@ -47,6 +47,12 @@ dependencies {
     pluginDependencies.itemNbtApi()
 }
 
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xcontext-parameters")
+    }
+}
+
 paperLibrary {
     localPublishingRepository {
         url = uri(rootProject.layout.buildDirectory.dir("artifacts/maven"))
