@@ -19,13 +19,47 @@ data class GuiConfig(
     val structure: List<String>,
     val actions: Map<String, Char> = emptyMap(),
     val ingredients: Map<String, GuiItem> = emptyMap(),
-)
+) {
+    /** Get the ingredient character and corresponding [GuiItem] for the given [action], or null if not found. */
+    operator fun get(action: String): Pair<Char, GuiItem>? {
+        val ingredient = actions[action] ?: return null
+        val item = ingredients[ingredient.toString()] ?: return null
+        return ingredient to item
+    }
+
+    /** Execute [block] if the [action] exists, providing the corresponding ingredient and item. */
+    fun actionItem(
+        action: String,
+        block: (ingredient: Char, item: GuiItem) -> Unit,
+    ) {
+        val ingredient = actions[action] ?: return
+        val item = ingredients[ingredient.toString()] ?: return
+        block(ingredient, item)
+    }
+
+    /** Execute [block] for each ingredient that does not have an associated action. */
+    fun noActionsItem(block: (ingredient: Char, item: GuiItem) -> Unit) {
+        val actionIngredients = actions.values.toSet()
+        ingredients.forEach { (key, item) ->
+            val ingredient = key.first()
+            if (ingredient !in actionIngredients) {
+                block(ingredient, item)
+            }
+        }
+    }
+}
+
+fun GuiConfig.d() {
+}
 
 /** Represents an item in a GUI, with a [default] item and optional [states]. */
 data class GuiItem(
     val default: ItemStackBuilder,
     val states: Map<String, ItemStackBuilder> = emptyMap(),
 ) {
+    /** Get the item for the given [state], or the [default] item if the state does not exist. */
+    operator fun get(state: String): ItemStackBuilder = states[state] ?: default
+
     internal object Serializer : TypeSerializer<GuiItem> {
         override fun deserialize(
             type: Type,
