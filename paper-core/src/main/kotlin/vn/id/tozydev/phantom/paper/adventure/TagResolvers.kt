@@ -2,10 +2,20 @@
 
 package vn.id.tozydev.phantom.paper.adventure
 
-import net.kyori.adventure.text.ComponentLike
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toJavaLocalDateTime
+import kotlinx.datetime.toJavaLocalTime
+import kotlinx.datetime.toLocalDateTime
+import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.StyleBuilderApplicable
+import net.kyori.adventure.text.minimessage.tag.TagPattern
+import net.kyori.adventure.text.minimessage.tag.resolver.Formatter
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
+import java.time.temporal.Temporal
+import kotlin.time.Instant
 
 /** Creates a [TagResolver] with the specified block configuration. */
 fun TagResolver(block: TagResolver.Builder.() -> Unit): TagResolver {
@@ -14,37 +24,73 @@ fun TagResolver(block: TagResolver.Builder.() -> Unit): TagResolver {
     return builder.build()
 }
 
-/**
- * Creates a placeholder that inserts a MiniMessage string.
- * The inserted string will impact the rest of the parse process.
- */
-fun TagResolver.Builder.placeholder(
-    key: String,
-    value: String,
-): TagResolver.Builder = this.resolver(Placeholder.parsed(key, value))
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.parsed(value: String) = builder.resolver(Placeholder.parsed(this, value))
 
-/**
- * Creates a replacement that inserts a component.
- * This replacement is auto-closing, so its style will not influence the style of following components.
- */
-fun TagResolver.Builder.placeholder(
-    key: String,
-    value: ComponentLike,
-): TagResolver.Builder = this.resolver(Placeholder.component(key, value))
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.parsed(value: () -> Any) = parsed(value().toString())
 
-/**
- * Creates a placeholder that inserts a literal string, without attempting to parse any contained tags.
- */
-fun TagResolver.Builder.unparsedPlaceholder(
-    key: String,
-    value: String,
-): TagResolver.Builder = this.resolver(Placeholder.unparsed(key, value))
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.unparsed(value: String) = builder.resolver(Placeholder.unparsed(this, value))
 
-/**
- * Creates a style tag which will modify the style of the component.
- * This style can be used like other styles.
- */
-fun TagResolver.Builder.styling(
-    key: String,
-    vararg style: StyleBuilderApplicable,
-): TagResolver.Builder = this.resolver(Placeholder.styling(key, *style))
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.unparsed(value: () -> Any) = unparsed(value().toString())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.component(value: Component) = builder.resolver(Placeholder.component(this, value))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.component(value: () -> Component) = component(value())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.styling(style: List<StyleBuilderApplicable>) =
+    builder.resolver(Placeholder.styling(this, *style.toTypedArray()))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.styling(style: StyleBuilderApplicable) = builder.resolver(Placeholder.styling(this, style))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.styling(style: () -> StyleBuilderApplicable) = styling(style())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.number(value: Number) = builder.resolver(Formatter.number(this, value))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.number(value: () -> Number) = number(value())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.date(value: Temporal) = builder.resolver(Formatter.date(this, value))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.date(value: () -> Temporal) = date(value())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.instant(instant: Instant) =
+    date(instant.toLocalDateTime(TimeZone.currentSystemDefault()).toJavaLocalDateTime())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.instant(instant: () -> Instant) = instant(instant())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.dateTime(value: LocalDateTime) = date(value.toJavaLocalDateTime())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.dateTime(value: () -> LocalDateTime) = dateTime(value())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.time(value: LocalTime) = date(value.toJavaLocalTime())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.time(value: () -> LocalTime) = time(value())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.choice(value: Int) = builder.resolver(Formatter.choice(this, value))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.choice(value: () -> Int) = choice(value())
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.booleanChoice(value: Boolean) = builder.resolver(Formatter.booleanChoice(this, value))
+
+context(builder: TagResolver.Builder)
+infix fun @receiver:TagPattern String.booleanChoice(value: () -> Boolean) = booleanChoice(value())
