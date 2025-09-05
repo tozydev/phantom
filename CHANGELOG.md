@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/tozydev/phantom/compare/v0.7.0...v0.7.1) (2025-09-05)
+
+
+### Bug Fixes
+
+* **paper-core:** add old-style placeholder builder functions to keep compatibility ([cc48c86](https://github.com/tozydev/phantom/commit/cc48c8620d943ba1f940cbdb89f8ac6a91f83656))
+
 ## [0.7.0](https://github.com/tozydev/phantom/compare/v0.6.3...v0.7.0) (2025-09-05)
 
 
