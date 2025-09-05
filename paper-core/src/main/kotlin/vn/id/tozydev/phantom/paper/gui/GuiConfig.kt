@@ -31,13 +31,16 @@ data class GuiItem(
             type: Type,
             node: ConfigurationNode,
         ): GuiItem {
-            val default = node.node("default").get<ItemStackBuilder>()
-            if (default == null) {
+            val defaultNode = node.node("default")
+            if (defaultNode.isNull) {
                 val item =
                     node.get<ItemStackBuilder>()
                         ?: throw SerializationException("GuiItem have wrong format or missing 'default' item")
                 return GuiItem(item)
             }
+            val default =
+                defaultNode.get<ItemStackBuilder>()
+                    ?: throw SerializationException("GuiItem 'default' is not a valid ItemStackBuilder")
             return GuiItem(
                 default = default,
                 states =
