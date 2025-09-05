@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.7.0](https://github.com/tozydev/phantom/compare/v0.6.3...v0.7.0) (2025-09-05)
+
+
+### Features
+
+* **core-paper:** add pluginCommand extension for CommandAPI registration ([ef06bc6](https://github.com/tozydev/phantom/commit/ef06bc6e112bb3f2205367c92d9158a0c179dae6))
+* **paper-core:** add operator function for TagResolver to handle custom tags ([8aa8bf3](https://github.com/tozydev/phantom/commit/8aa8bf378a4bcbdebac99ade1527f33d0848e643))
+* **paper-core:** add sendRichMessage function with tagResolver lambda ([83233eb](https://github.com/tozydev/phantom/commit/83233ebce12016583c4b0e7f506d482a6b4bce5c))
+* **paper-core:** enhance TagResolver with new placeholder and formatting extensions function ([fcb4d50](https://github.com/tozydev/phantom/commit/fcb4d50ef30d5c98d4a7419d3c58a0d6345b83f9))
+
+
+### Bug Fixes
+
+* **deps:** update dependency org.jetbrains.exposed:exposed-bom to v1.0.0-rc-1 ([#62](https://github.com/tozydev/phantom/issues/62)) ([182017b](https://github.com/tozydev/phantom/commit/182017b6d91ce97971eb6840e6280b6f59d8a02d))
+* **deps:** update plugin-libs ([#59](https://github.com/tozydev/phantom/issues/59)) ([510a0a2](https://github.com/tozydev/phantom/commit/510a0a23505ebeb2e2b56338fae8ccc4a47da060))
+* **paper-core:** handle null default node in GuiItem serialization ([b507607](https://github.com/tozydev/phantom/commit/b507607fe61393daed5a30cf437cf6c7d8b04dfb))
+* **paper-core:** update ingredients map to use Char as key in GuiConfig ([99c1fb4](https://github.com/tozydev/phantom/commit/99c1fb4be60c1f3cecc678f339d608c13c15b707))
+
+
+### Documentation
+
+* **paper-core:** add docs for TagResolvers extensions ([7576723](https://github.com/tozydev/phantom/commit/75767234e2ab5346e4afc058380fac91e7c3cace))
+
 ## [0.6.3](https://github.com/tozydev/phantom/compare/v0.6.2...v0.6.3) (2025-08-25)
 
 
