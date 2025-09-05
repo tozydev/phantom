@@ -5,6 +5,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.text.serializer.ComponentDecoder
+import vn.id.tozydev.phantom.paper.adventure.TagResolver
 
 /**
  * Sends a [Message] to the [Audience] using the provided [MessageDecoder] for deserialization.
@@ -44,6 +45,21 @@ fun Audience.sendRichMessage(
     tagResolver: TagResolver = TagResolver.empty(),
     miniMessage: MiniMessage = MiniMessage.miniMessage(),
 ) = sendMessage(message) { input -> miniMessage.deserialize(input, tagResolver) }
+
+/**
+ * Sends a rich [Message] to the [Audience] using MiniMessage for deserialization.
+ *
+ * This function utilizes the provided [miniMessage] instance and a [tagResolver] builder
+ * lambda to create a [TagResolver] for deserializing the message content before sending it
+ * to the audience.
+ *
+ * @see sendMessage
+ */
+fun Audience.sendRichMessage(
+    message: Message,
+    miniMessage: MiniMessage = MiniMessage.miniMessage(),
+    tagResolver: TagResolver.Builder.() -> Unit,
+) = sendRichMessage(message, TagResolver { tagResolver() }, miniMessage)
 
 internal object PlainTextComponentDecoder : ComponentDecoder<String, Component> {
     override fun deserialize(input: String): Component = Component.text(input)
