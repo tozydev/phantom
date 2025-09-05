@@ -49,9 +49,6 @@ data class GuiConfig(
     }
 }
 
-fun GuiConfig.d() {
-}
-
 /** Represents an item in a GUI, with a [default] item and optional [states]. */
 data class GuiItem(
     val default: ItemStackBuilder,
