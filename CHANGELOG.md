@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.8.0](https://github.com/tozydev/phantom/compare/v0.7.1...v0.8.0) (2025-09-05)
+
+
+### Features
+
+* **paper-core:** add methods to retrieve and execute actions with ingredients in GuiConfig ([939ef32](https://github.com/tozydev/phantom/commit/939ef3203fd293f918fde8da9caf44f2d904f557))
+
+
+### Reverts
+
+* "fix(paper-core): update ingredients map to use Char as key in GuiConfig" ([32e4989](https://github.com/tozydev/phantom/commit/32e49893a41ca85afca20044c09c421021513ef5))
+
 ## [0.7.1](https://github.com/tozydev/phantom/compare/v0.7.0...v0.7.1) (2025-09-05)
 
 
