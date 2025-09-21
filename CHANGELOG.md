@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.1](https://github.com/tozydev/phantom/compare/v0.8.0...v0.8.1) (2025-09-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency org.mariadb.jdbc:mariadb-java-client to v3.5.6 ([#72](https://github.com/tozydev/phantom/issues/72)) ([51fc5f4](https://github.com/tozydev/phantom/commit/51fc5f4704aee5ceb1b0700761056093e7c92a7d))
+* **deps:** update dependency org.postgresql:postgresql to v42.7.8 ([#75](https://github.com/tozydev/phantom/issues/75)) ([1dffc28](https://github.com/tozydev/phantom/commit/1dffc2801fd976c3d33e36505fbb431deee08d6d))
+
 ## [0.8.0](https://github.com/tozydev/phantom/compare/v0.7.1...v0.8.0) (2025-09-05)
 
 
