@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.9.0](https://github.com/tozydev/phantom/compare/v0.8.0...v0.9.0) (2025-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update dependency org.jetbrains.exposed:exposed-bom to v1.0.0-rc-2 ([#85](https://github.com/tozydev/phantom/issues/85))
+* **deps:** update invui to v2.0.0-alpha.20 ([#76](https://github.com/tozydev/phantom/issues/76))
+
+### Bug Fixes
+
+* **deps:** update dependency com.h2database:h2 to v2.4.240 ([#79](https://github.com/tozydev/phantom/issues/79)) [skip ci] ([e35a41e](https://github.com/tozydev/phantom/commit/e35a41e226c07d7cb49eda6aac9d1db315919c0c))
+* **deps:** update dependency de.tr7zw:item-nbt-api-plugin to v2.15.3 ([#84](https://github.com/tozydev/phantom/issues/84)) ([aa7fe59](https://github.com/tozydev/phantom/commit/aa7fe59ff223b34c066cc5f9d8792886df1594a6))
+* **deps:** update dependency org.jetbrains.exposed:exposed-bom to v1.0.0-rc-2 ([#85](https://github.com/tozydev/phantom/issues/85)) ([80ef602](https://github.com/tozydev/phantom/commit/80ef602291ac8dd22616fc6b30e6920ef41bc2be))
+* **deps:** update dependency org.mariadb.jdbc:mariadb-java-client to v3.5.6 ([#72](https://github.com/tozydev/phantom/issues/72)) ([51fc5f4](https://github.com/tozydev/phantom/commit/51fc5f4704aee5ceb1b0700761056093e7c92a7d))
+* **deps:** update dependency org.postgresql:postgresql to v42.7.8 ([#75](https://github.com/tozydev/phantom/issues/75)) ([1dffc28](https://github.com/tozydev/phantom/commit/1dffc2801fd976c3d33e36505fbb431deee08d6d))
+* **deps:** update invui to v2.0.0-alpha.20 ([#76](https://github.com/tozydev/phantom/issues/76)) ([05a1b1b](https://github.com/tozydev/phantom/commit/05a1b1bce934581a740ab0a55dfadf8d06315554))
+* **deps:** update plugin-libs ([#88](https://github.com/tozydev/phantom/issues/88)) ([d786501](https://github.com/tozydev/phantom/commit/d786501ef264cceae3190d528240fe43384eb122))
+
 ## [0.8.0](https://github.com/tozydev/phantom/compare/v0.7.1...v0.8.0) (2025-09-05)
 
 
