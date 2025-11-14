@@ -1,5 +1,5 @@
 [versions]
-javapoet = "0.7.0"
+javapoet = "0.8.0"
 # Gradle plugins
 foojay-resolver = "1.0.0"
 kotlin = "2.2.21"
