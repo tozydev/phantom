@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.9.1](https://github.com/tozydev/phantom/compare/v0.9.0...v0.9.1) (2025-11-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.palantir.javapoet:javapoet to v0.8.0 ([#96](https://github.com/tozydev/phantom/issues/96)) ([8ce008d](https://github.com/tozydev/phantom/commit/8ce008d3fbff839a0b70fb4f3c29a63d37c316f9))
+* **deps:** update invui to v2.0.0-alpha.21 ([#98](https://github.com/tozydev/phantom/issues/98)) ([6354d3a](https://github.com/tozydev/phantom/commit/6354d3ac6e09d9e9ebdaa31a5a7d39e9b8386391))
+* **deps:** update plugin-libs ([#91](https://github.com/tozydev/phantom/issues/91)) ([653b690](https://github.com/tozydev/phantom/commit/653b690d9b1fa1362434333cf376a90f9086c269))
+
 ## [0.9.0](https://github.com/tozydev/phantom/compare/v0.8.0...v0.9.0) (2025-10-27)
 
 
