@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.2](https://github.com/tozydev/phantom/compare/v0.9.1...v0.9.2) (2025-11-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency com.palantir.javapoet:javapoet to v0.9.0 ([#103](https://github.com/tozydev/phantom/issues/103)) ([def99d3](https://github.com/tozydev/phantom/commit/def99d35c2f8344c9781b32b40f484a434436874))
+
 ## [0.9.1](https://github.com/tozydev/phantom/compare/v0.9.0...v0.9.1) (2025-11-19)
 
 
