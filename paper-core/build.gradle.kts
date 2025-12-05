@@ -7,20 +7,29 @@ plugins {
 repositories {
     xenondevsReleases()
     codeMc()
+    maven("https://repo.auxilor.io/repository/maven-public/") {
+        mavenContent {
+            includeGroup("com.willfp")
+        }
+    }
 }
 
 dependencies {
-    api(platform(libs.kotlin.bom)) {
+    compileOnly(libs.eco)
+
+    compileOnlyApi(platform(libs.kotlin.bom)) {
         version {
             prefer(getKotlinPluginVersion())
         }
     }
-    api(libs.kotlin.stdlib)
-    api(libs.kotlin.reflect)
-    api(libs.kotlinx.datetime)
+    compileOnlyApi(libs.kotlin.stdlib)
+    compileOnlyApi(libs.kotlin.reflect)
+    api(libs.kotlinx.datetime.jvm) {
+        exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib")
+    }
 
-    api(platform(libs.kotlinx.coroutines.bom))
-    api(libs.kotlinx.coroutines.core)
+    compileOnly(platform(libs.kotlinx.coroutines.bom))
+    compileOnly(libs.kotlinx.coroutines.core)
     api(libs.mccoroutine.folia.api) {
         exclude(group = "org.jetbrains.kotlin")
     }
@@ -33,6 +42,7 @@ dependencies {
     api(libs.configurate.extra.kotlin) {
         exclude(group = "org.spongepowered")
         exclude(group = "org.jetbrains.kotlin")
+        exclude(group = "org.jetbrains.kotlinx")
         exclude(group = "com.google.errorprone")
     }
 
@@ -49,7 +59,7 @@ dependencies {
 
 kotlin {
     compilerOptions {
-        freeCompilerArgs.addAll("-Xcontext-parameters")
+        freeCompilerArgs.addAll("-Xcontext-receivers")
         optIn.addAll("kotlin.time.ExperimentalTime")
     }
 }

@@ -1,7 +1,7 @@
 [versions]
 kotlinx-datetime = "0.7.1-0.6.x-compat"
 
-kotlinx-coroutines = "1.10.2"
+kotlinx-coroutines = "1.7.3"
 mccoroutine = "2.22.0"
 
 configurate = "4.2.0"
@@ -12,11 +12,13 @@ hikari-cp = "7.0.2"
 commandapi = "10.1.2"
 invui = "2.0.0-alpha.21"
 
+eco = "6.77.2"
+
 [libraries]
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-datetime-jvm = { module = "org.jetbrains.kotlinx:kotlinx-datetime-jvm", version.ref = "kotlinx-datetime" }
 
 kotlinx-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
@@ -39,6 +41,8 @@ commandapi-bukkit-kotlin = { module = "dev.jorel:commandapi-bukkit-kotlin", vers
 
 invui = { module = "xyz.xenondevs.invui:invui", version.ref = "invui" }
 invuiKotlin = { module = "xyz.xenondevs.invui:invui-kotlin", version.ref = "invui" }
+
+eco = { module = "com.willfp:eco", version.ref = "eco" }
 
 [bundles]
 exposed = ["exposed-core", "exposed-jdbc", "exposed-dao", "exposed-kotlin-datetime"]

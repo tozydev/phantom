@@ -5,6 +5,8 @@ plugins {
 }
 
 dependencies {
+    compileOnly(libs.kotlin.stdlib)
+
     api(libs.hikari.cp)
 }
 
