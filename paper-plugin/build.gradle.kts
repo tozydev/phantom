@@ -1,4 +1,5 @@
 import vn.id.tozydev.phantom.gradle.paper.features.plugin.excludePaperweightInternalRepositories
+import xyz.jpenilla.resourcefactory.bukkit.BukkitPluginYaml
 import xyz.jpenilla.resourcefactory.paper.PaperPluginYaml
 
 plugins {
@@ -24,6 +25,7 @@ paperPlugin {
         author = "tozydev"
         website = "https://tozydev.id.vn/"
         foliaSupported = true
+        load = BukkitPluginYaml.PluginLoadOrder.STARTUP
         dependencies {
             server("eco", PaperPluginYaml.Load.BEFORE, false, joinClasspath = false)
         }
