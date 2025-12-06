@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.9.2](https://github.com/tozydev/phantom/compare/v0.9.1...v0.9.2) (2025-12-06)
+
+
+### Bug Fixes
+
+* change plugin load order to startup ([f41de25](https://github.com/tozydev/phantom/commit/f41de25676dc233a2e101e3e5ad70a01cc97784d))
+* **deps:** update dependency com.palantir.javapoet:javapoet to v0.9.0 ([#103](https://github.com/tozydev/phantom/issues/103)) ([def99d3](https://github.com/tozydev/phantom/commit/def99d35c2f8344c9781b32b40f484a434436874))
+* **deps:** update dependency org.jetbrains.exposed:exposed-bom to v1.0.0-rc-4 ([#93](https://github.com/tozydev/phantom/issues/93)) ([0226cf3](https://github.com/tozydev/phantom/commit/0226cf334f28cd23da3e2fe2e2aa4024e51f199a))
+* **deps:** update dependency org.xerial:sqlite-jdbc to v3.51.1.0 ([#105](https://github.com/tozydev/phantom/issues/105)) ([7b0303a](https://github.com/tozydev/phantom/commit/7b0303a581373e21084ace6bcc5193970794c315))
+* isolate the eco plugin classpath because of conflict ([5c666d3](https://github.com/tozydev/phantom/commit/5c666d3941ca3eb7a488b445cdbc0e5147855156))
+
+
+### Reverts
+
+* "fix(deps): update dependency org.jetbrains.exposed:exposed-bom to v1.0.0-rc-4 ([#93](https://github.com/tozydev/phantom/issues/93))" ([0456a0b](https://github.com/tozydev/phantom/commit/0456a0b98be4d129b6d0ce2e281a0223cae15c05))
+
 ## [0.9.1](https://github.com/tozydev/phantom/compare/v0.9.0...v0.9.1) (2025-11-19)
 
 
