@@ -1,4 +1,5 @@
 import vn.id.tozydev.phantom.gradle.paper.features.plugin.excludePaperweightInternalRepositories
+import xyz.jpenilla.resourcefactory.paper.PaperPluginYaml
 
 plugins {
     `paper-plugin`
@@ -23,6 +24,9 @@ paperPlugin {
         author = "tozydev"
         website = "https://tozydev.id.vn/"
         foliaSupported = true
+        dependencies {
+            server("eco", PaperPluginYaml.Load.BEFORE, false, joinClasspath = false)
+        }
     }
     runServer {
         acceptEula = true
