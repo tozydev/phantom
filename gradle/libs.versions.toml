@@ -10,7 +10,7 @@ exposed = "1.0.0-rc-2"
 hikari-cp = "7.0.2"
 
 commandapi = "10.1.2"
-invui = "2.0.0-alpha.21"
+invui = "2.0.0-alpha.26"
 
 [libraries]
 kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom" }
