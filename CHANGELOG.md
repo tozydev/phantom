@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.10.0](https://github.com/tozydev/phantom/compare/v0.9.2...v0.10.0) (2026-01-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **infra:** migrate host repository to tozydev Maven Repository
+
+### Bug Fixes
+
+* **deps:** update dependency com.palantir.javapoet:javapoet to v0.10.0 ([#117](https://github.com/tozydev/phantom/issues/117)) ([e7a8ae1](https://github.com/tozydev/phantom/commit/e7a8ae1d0300bb92c04ce328df4fd0e736668420))
+* **deps:** update dependency org.mariadb.jdbc:mariadb-java-client to v3.5.7 ([#112](https://github.com/tozydev/phantom/issues/112)) ([744f876](https://github.com/tozydev/phantom/commit/744f876d78417909fc0f49885036e24c47b3bfe3))
+* **deps:** update invui to v2.0.0-alpha.26 ([#109](https://github.com/tozydev/phantom/issues/109)) ([3e6b921](https://github.com/tozydev/phantom/commit/3e6b921ccbee38ccdaa5f4e7bc5c6d1117b5e26c))
+* **deps:** update plugin-libs ([#110](https://github.com/tozydev/phantom/issues/110)) ([de6f920](https://github.com/tozydev/phantom/commit/de6f920ed00c3cdaaf701a86cfcf6f6110a88e5c))
+* **deps:** update plugin-libs ([#115](https://github.com/tozydev/phantom/issues/115)) ([5f3673e](https://github.com/tozydev/phantom/commit/5f3673ee137c9a1c0feb30eb35e7e0460ca07fa5))
+
+
+### Code Refactoring
+
+* **infra:** migrate host repository to tozydev Maven Repository ([645570c](https://github.com/tozydev/phantom/commit/645570cf1ce0b7c81599b92175948afecccdabda))
+
 ## [0.9.2](https://github.com/tozydev/phantom/compare/v0.9.1...v0.9.2) (2025-12-06)
 
 
