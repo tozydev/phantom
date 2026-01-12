@@ -41,14 +41,34 @@ fun RepositoryHandler.dmulloy2(action: MavenArtifactRepository.() -> Unit = {}) 
         action()
     }
 
+@Deprecated("Use tozydevReleases instead.", ReplaceWith("tozydevReleases(action)"))
 fun RepositoryHandler.velaReleases(action: MavenArtifactRepository.() -> Unit = {}) =
     maven(BuildConfig.VELA_RELEASES_URL) {
         name = "VelaReleases"
         action()
     }
 
+@Deprecated("Use tozydevSnapshots instead.", ReplaceWith("tozydevSnapshots(action)"))
 fun RepositoryHandler.velaSnapshots(action: MavenArtifactRepository.() -> Unit = {}) =
     maven(BuildConfig.VELA_SNAPSHOTS_URL) {
         name = "VelaSnapshots"
+        action()
+    }
+
+fun RepositoryHandler.tozydevMaven(action: MavenArtifactRepository.() -> Unit = {}) =
+    maven(BuildConfig.TOZYDEV_MAVEN_PUBLIC_URL) {
+        name = "tozydevMaven"
+        action()
+    }
+
+fun RepositoryHandler.tozydevReleases(action: MavenArtifactRepository.() -> Unit = {}) =
+    maven(BuildConfig.TOZYDEV_MAVEN_RELEASES_URL) {
+        name = "tozydevReleases"
+        action()
+    }
+
+fun RepositoryHandler.tozydevSnapshots(action: MavenArtifactRepository.() -> Unit = {}) =
+    maven(BuildConfig.TOZYDEV_MAVEN_SNAPSHOTS_URL) {
+        name = "tozydevSnapshots"
         action()
     }

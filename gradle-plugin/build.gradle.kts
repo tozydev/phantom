@@ -69,20 +69,21 @@ testing {
 gradlePlugin {
     testSourceSets.add(sourceSets["functionalTest"])
 
+    @Suppress("unused")
     plugins {
-        create("phantomPlugin") {
+        val phantomPlugin by creating {
             id = "vn.id.tozydev.phantom"
             displayName = "Phantom Gradle Plugin"
             description = "A Gradle plugin that simplifies the Paper plugin development for Minecraft servers."
             implementationClass = "vn.id.tozydev.phantom.gradle.PhantomSettingsPlugin"
         }
-        create("phantomPaperLibraryPlugin") {
+        val phantomPaperLibraryPlugin by creating {
             id = "vn.id.tozydev.phantom.paper-library"
             displayName = "Phantom Paper Library Plugin"
             description = "A Gradle plugin that simplifies the Paper library development for Minecraft servers."
             implementationClass = "vn.id.tozydev.phantom.gradle.paper.PaperLibraryProjectPlugin"
         }
-        create("phantomPaperPlugin") {
+        val phantomPaperPlugin by creating {
             id = "vn.id.tozydev.phantom.paper-plugin"
             displayName = "Phantom Paper Plugin"
             description = "A Gradle plugin that simplifies the Paper plugin development for Minecraft servers."
@@ -108,8 +109,9 @@ tasks {
     }
 }
 
-val velaSnapshotsUrl = findProperty("vela.snapshots.url").toString()
-val velaReleasesUrl = findProperty("vela.releases.url").toString()
+val mavenSnapshotsUrl = findProperty("tozydev.maven.snapshots.url").toString()
+val mavenReleasesUrl = findProperty("tozydev.maven.releases.url").toString()
+val mavenPublicUrl = findProperty("tozydev.maven.public.url").toString()
 
 buildConfig {
     packageName("vn.id.tozydev.phantom.gradle")
@@ -141,16 +143,31 @@ buildConfig {
     buildConfigField(
         "String",
         "VELA_SNAPSHOTS_URL",
-        "\"${velaSnapshotsUrl}\"",
+        "\"${mavenSnapshotsUrl}\"",
     )
     buildConfigField(
         "String",
         "VELA_RELEASES_URL",
-        "\"${velaReleasesUrl}\"",
+        "\"${mavenReleasesUrl}\"",
     )
     buildConfigField(
-        "VELA_REPO_NAME",
-        "VelaRepo",
+        "String",
+        "TOZYDEV_MAVEN_RELEASES_URL",
+        "\"${mavenReleasesUrl}\"",
+    )
+    buildConfigField(
+        "String",
+        "TOZYDEV_MAVEN_SNAPSHOTS_URL",
+        "\"${mavenSnapshotsUrl}\"",
+    )
+    buildConfigField(
+        "String",
+        "TOZYDEV_MAVEN_PUBLIC_URL",
+        "\"${mavenPublicUrl}\"",
+    )
+    buildConfigField(
+        "TOZYDEV_MAVEN_REPO_NAME",
+        "tozydevRepository",
     )
 
     forClass("DependenciesRes") {
@@ -170,17 +187,17 @@ publishing {
         maven {
             val isSnapshot = version.toString().endsWith("-SNAPSHOT")
             if (isSnapshot) {
-                name = "VelaSnapshots"
-                url = uri(velaSnapshotsUrl)
+                name = "tozydevSnapshots"
+                url = uri(mavenSnapshotsUrl)
             } else {
-                name = "VelaReleases"
-                url = uri(velaReleasesUrl)
+                name = "tozydevReleases"
+                url = uri(mavenReleasesUrl)
             }
             credentials {
-                username = providers.gradleProperty("vela.username").orNull
-                    ?: providers.environmentVariable("VELA_USERNAME").orNull
-                password = providers.gradleProperty("vela.password").orNull
-                    ?: providers.environmentVariable("VELA_PASSWORD").orNull
+                username = providers.gradleProperty("tozydev-maven.username").orNull
+                    ?: providers.environmentVariable("TOZYDEV_MAVEN_USERNAME").orNull
+                password = providers.gradleProperty("tozydev-maven.password").orNull
+                    ?: providers.environmentVariable("TOZYDEV_MAVEN_PASSWORD").orNull
             }
         }
         maven {
@@ -191,5 +208,5 @@ publishing {
 }
 
 @Suppress("UnusedReceiverParameter")
-fun DependencyHandlerScope.plugin(plugin: Provider<PluginDependency>) =
+fun DependencyHandlerScope.plugin(plugin: Provider<PluginDependency>): Provider<String> =
     plugin.map { "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version}" }

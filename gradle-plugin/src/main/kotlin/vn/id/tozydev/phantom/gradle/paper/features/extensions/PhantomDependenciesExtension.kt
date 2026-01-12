@@ -5,7 +5,6 @@ import org.gradle.api.artifacts.ExternalModuleDependency
 import org.gradle.kotlin.dsl.create
 import vn.id.tozydev.phantom.gradle.BuildConfig
 import vn.id.tozydev.phantom.gradle.paper.features.plugin.DynamicLibraryLoaderConfigurer
-import xenondevsReleases
 
 @Suppress("unused")
 abstract class PhantomDependenciesExtension(
@@ -59,23 +58,18 @@ abstract class PhantomDependenciesExtension(
 
         val repoUrl =
             when (phantomRepositoryInjectType) {
-                PHANTOM_REPOSITORY_TYPE_RELEASES -> BuildConfig.VELA_RELEASES_URL
-                PHANTOM_REPOSITORY_TYPE_SNAPSHOTS -> BuildConfig.VELA_SNAPSHOTS_URL
-                else -> throw IllegalArgumentException(
-                    "Unknown Phantom repository type: $phantomRepositoryInjectType, expected one of: " +
-                        "$PHANTOM_REPOSITORY_TYPE_RELEASES, $PHANTOM_REPOSITORY_TYPE_SNAPSHOTS",
-                )
+                PHANTOM_REPOSITORY_TYPE_RELEASES -> BuildConfig.TOZYDEV_MAVEN_RELEASES_URL
+                PHANTOM_REPOSITORY_TYPE_SNAPSHOTS -> BuildConfig.TOZYDEV_MAVEN_SNAPSHOTS_URL
+                else -> BuildConfig.TOZYDEV_MAVEN_PUBLIC_URL
             }
         repositories.maven {
-            name = BuildConfig.VELA_REPO_NAME
+            name = BuildConfig.TOZYDEV_MAVEN_REPO_NAME
             url = uri(repoUrl)
         }
-        // XenonDevs repository is required for InvUI dependencies
-        repositories.xenondevsReleases()
     }
 
     private val Project.phantomRepositoryInjected
-        get() = repositories.findByName(BuildConfig.VELA_REPO_NAME) != null
+        get() = repositories.findByName(BuildConfig.TOZYDEV_MAVEN_REPO_NAME) != null
 
     private val Project.shouldInjectPhantomRepository
         get() = findProperty(PHANTOM_REPOSITORY_INJECT)?.toString()?.toBoolean() ?: PHANTOM_REPOSITORY_INJECT_DEFAULT
@@ -92,6 +86,6 @@ abstract class PhantomDependenciesExtension(
         const val PHANTOM_REPOSITORY_TYPE = "phantom.repository.type"
         const val PHANTOM_REPOSITORY_TYPE_RELEASES = "releases"
         const val PHANTOM_REPOSITORY_TYPE_SNAPSHOTS = "snapshots"
-        const val PHANTOM_REPOSITORY_TYPE_DEFAULT = PHANTOM_REPOSITORY_TYPE_RELEASES
+        const val PHANTOM_REPOSITORY_TYPE_DEFAULT = "public"
     }
 }

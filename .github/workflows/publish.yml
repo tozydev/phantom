@@ -32,7 +32,10 @@ jobs:
     needs: release
     if: needs.release.outputs.release-created == 'true'
     runs-on: ubuntu-latest
-    environment: Vela Releases
+    environment:
+      name: tozydev-maven
+      url: https://maven.tozydev.com/
+
     permissions:
       contents: write
 
@@ -59,15 +62,15 @@ jobs:
         id: publish-gradle-plugin
         run: ./gradlew gradle-plugin:publish
         env:
-          VELA_USERNAME: ${{ secrets.VELA_USERNAME }}
-          VELA_PASSWORD: ${{ secrets.VELA_PASSWORD }}
+          TOZYDEV_MAVEN_USERNAME: ${{ secrets.TOZYDEV_MAVEN_USERNAME }}
+          TOZYDEV_MAVEN_PASSWORD: ${{ secrets.TOZYDEV_MAVEN_PASSWORD }}
 
       - name: Publish libraries
         id: publish-artifacts
         run: ./gradlew publish --no-configuration-cache # Temporarily disable configuration cache due to task issues
         env:
-          VELA_USERNAME: ${{ secrets.VELA_USERNAME }}
-          VELA_PASSWORD: ${{ secrets.VELA_PASSWORD }}
+          TOZYDEV_MAVEN_USERNAME: ${{ secrets.TOZYDEV_MAVEN_USERNAME }}
+          TOZYDEV_MAVEN_PASSWORD: ${{ secrets.TOZYDEV_MAVEN_PASSWORD }}
 
       - name: Build phantom-paper-plugin
         run: ./gradlew phantom-paper-plugin:build
