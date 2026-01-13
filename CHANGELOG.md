@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.2](https://github.com/tozydev/phantom/compare/v0.10.1...v0.10.2) (2026-01-13)
+
+
+### Bug Fixes
+
+* downgrade invui to 2.0.0-alpha.21.1.1 ([1cc3ae7](https://github.com/tozydev/phantom/commit/1cc3ae770dea386570bd22f2109897152aacfa2b))
+
 ## [0.10.1](https://github.com/tozydev/phantom/compare/v0.10.0...v0.10.1) (2026-01-13)
 
 
