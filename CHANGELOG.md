@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/tozydev/phantom/compare/v0.10.0...v0.10.1) (2026-01-13)
+
+
+### Bug Fixes
+
+* **gradle-plugin:** correct public Maven repo host ([511f0e5](https://github.com/tozydev/phantom/commit/511f0e5682514c88c42443322a0a6a315f7b6ee1))
+
 ## [0.10.0](https://github.com/tozydev/phantom/compare/v0.9.2...v0.10.0) (2026-01-12)
 
 
