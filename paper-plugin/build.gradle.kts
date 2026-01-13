@@ -36,6 +36,10 @@ paperPlugin {
 }
 
 tasks {
+    jar {
+        archiveClassifier = "plain"
+    }
+
     shadowJar {
         archiveClassifier = ""
     }
