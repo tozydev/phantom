@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.3](https://github.com/tozydev/phantom/compare/v0.10.2...v0.10.3) (2026-01-22)
+
+
+### Bug Fixes
+
+* **deps:** update plugin-libs ([#124](https://github.com/tozydev/phantom/issues/124)) ([2c1b309](https://github.com/tozydev/phantom/commit/2c1b309ffa424bf92eb13282c9b60dc43d447273))
+
 ## [0.10.2](https://github.com/tozydev/phantom/compare/v0.10.1...v0.10.2) (2026-01-13)
 
 
