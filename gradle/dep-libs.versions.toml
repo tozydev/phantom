@@ -7,10 +7,10 @@ vault = { module = "com.github.MilkBowl:VaultAPI", version = "1.7.1" }
 luckPerms = { module = "net.luckperms:api", version = "5.5" }
 world-edit = { module = "com.sk89q.worldedit:worldedit-bukkit", version = "7.4.0" }
 world-guard = { module = "com.sk89q.worldguard:worldguard-bukkit", version = "7.1.0-SNAPSHOT" }
-packetevents-spigot = { module = "com.github.retrooper:packetevents-spigot", version = "2.11.1" }
+packetevents-spigot = { module = "com.github.retrooper:packetevents-spigot", version = "2.11.2" }
 
 ### Database drivers
-mysql = { module = "com.mysql:mysql-connector-j", version = "9.5.0" }
+mysql = { module = "com.mysql:mysql-connector-j", version = "9.6.0" }
 mariadb = { module = "org.mariadb.jdbc:mariadb-java-client", version = "3.5.7" }
 postgresql = { module = "org.postgresql:postgresql", version = "42.7.9" }
 sqlite = { module = "org.xerial:sqlite-jdbc", version = "3.51.1.0" }
